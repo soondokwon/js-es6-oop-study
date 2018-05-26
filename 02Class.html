@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Class</title>
+</head>
+<body>
+    <h1>Object Class</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    class User {
+        constructor(n, e) {
+            this.name = n
+            this.email = e
+        }
+
+        print() {
+            console.log("name", this.name);
+            console.log("email", this.email);
+            document.write("<p>");
+            document.write("name : " + this.name);
+            document.write("</p><p>");
+            document.write("email : " + this.email);
+            document.write("</p>");
+        }
+    };
+
+    let userOne = new User('soondo', 'soondo@naver.com');
+    userOne.print();
+    
+    let userTwo = new User('tommy', 'tommy@naver.com');
+    userTwo.print();
+    console.log(userTwo.name);
+        
+</script>

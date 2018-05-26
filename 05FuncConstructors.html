@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Constructors</title>
+</head>
+<body>
+    <h1>Function Constructors</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    // 함수 생성자
+    function User(name, email) {
+        this.name = name;
+        this.email = email;
+        this.online = false;
+        this.print = function() {
+            document.write(`<p>this.name=`, this.name);
+            document.write(`</p><p>this.email=`, this.email);
+            document.write(`</p><p>this.online=`, this.online);
+            document.write(`</p>`);
+        }
+    }
+
+    let userOne = new User('soondo', 'soondo@naver.com');
+    let userTwo = new User('tommy', 'tommy@naver.com');
+
+    console.log(userOne);
+    console.log(userTwo);
+    userOne.print();
+    userTwo.print();
+</script>

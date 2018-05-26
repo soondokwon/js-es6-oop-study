@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prototype</title>
+</head>
+<body>
+    <h1>Prototype</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    // 함수 생성자
+    function User(name, email) {
+        this.name = name;
+        this.email = email;
+        this.online = false;
+        this.print = function() {
+            document.write(`<p>this.name=`, this.name, `</p>`);
+            document.write(`<p>this.email=`, this.email, `</p>`);
+            document.write(`<p>this.online=`, this.online, `</p>`);
+        }
+    }
+    //----------------------------------------
+    // prototype
+    // 1. instance와 상관없이 한번 메모리에 할당된다.
+    // 2. 1번의 이유로 상속시에 유용하다.
+    User.prototype.changeStatus = function(status) {
+        this.online = status;
+        document.write(`<p>changeStatus() -> this.online=`, this.online, `</p>`);
+    }
+
+    User.prototype.printStatus = function() {
+        document.write(`<p>printStatus() -> this.online=`, this.online, `</p>`);
+    }
+
+    let userOne = new User('soondo', 'soondo@naver.com');
+    let userTwo = new User('tommy', 'tommy@naver.com');
+
+    userOne.changeStatus(true);
+    userOne.printStatus();
+
+    console.log(userOne);
+    console.log(userTwo);
+
+    userTwo.print();
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Method chain</title>
+</head>
+<body>
+    <h1>Method chain</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    class User {
+        constructor(n, e) {
+            this.name = n;
+            this.email = e;
+            this.score = 0;
+        }
+
+        print() {
+            console.log("name", this.name);
+            console.log("email", this.email);
+            document.write("<p>");
+            document.write("name : " + this.name);
+            document.write("</p><p>");
+            document.write("email : " + this.email);
+            document.write("</p><p>");
+            document.write("score : " + this.score);
+        }
+
+        printScore() {
+            document.write("<p>score : " + this.score + "</p>");
+        }
+
+        incScore() {
+            this.score++;
+            this.printScore();
+
+            return this; // method chain 처리를 위해서 필요...
+        }
+
+        decScore() {
+            this.score--;
+            this.printScore();
+
+            return this;
+        }
+    };
+
+    let userOne = new User('soondo', 'soondo@naver.com');
+    userOne.print();
+    
+    let userTwo = new User('tommy', 'tommy@naver.com');
+    userTwo.print();
+    console.log(userTwo.name);
+
+    userOne.incScore();
+    userOne.incScore();
+
+    // method chain의 사용 예...
+    userTwo.incScore().incScore().incScore().incScore().decScore();
+        
+</script>

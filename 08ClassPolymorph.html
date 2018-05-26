@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Inherit polymorph</title>
+</head>
+<body>
+    <h1>Class Inherit  polymorph</h1>
+</body>
+</html>
+<script>
+
+class Animal { 
+    constructor(name) {
+        this.name = name;
+    }
+
+    // getter
+    get Name() {
+        return this.name;
+    }
+
+    // setter
+    set Name(n) {
+        this.name = n;
+    }
+
+    // static 함수
+    static hello(obj, msg) {
+        alert(obj.Name + " : " + msg);
+    }
+
+    speak() {
+        document.write('<p>', this.name + ' 잡소리.', '</p>');
+    }
+}
+
+class Dog extends Animal {
+    constructor(name) {
+        super(name)
+    }
+
+    speak() { // override
+        super.speak(); // 부모 클래스 호출
+        document.write('<p>', this.name + ' 멈멍.', '</p>');
+    }
+}
+
+class Cat extends Animal {
+    constructor(name) {
+        super(name)
+    }
+
+    speak() { // override
+        document.write('<p>', this.name + ' 야옹.', '</p>');
+    }
+}
+
+class Mouse extends Animal {
+    constructor(name) {
+        super(name)
+    }
+}
+
+let animals = [new Dog('dogy'), new Cat('kitty'), new Dog('바둑이'), new Mouse('mikey')];
+animals.forEach(function(item){
+    item.speak();
+    console.log( item.Name ); // getter
+    Animal.hello(item, '안녕하세요?');
+    item.Name = 'new name'; // setter
+});
+
+document.write('<hr />');
+
+animals.forEach(function(item){
+    item.speak();
+});
+
+</script>

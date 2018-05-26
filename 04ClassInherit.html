@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Inherit</title>
+</head>
+<body>
+    <h1>Class Inherit</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    class User {
+        constructor(n, e) {
+            this.name = n;
+            this.email = e;
+            this.score = 0;
+        }
+
+        print() {
+            console.log("name", this.name);
+            console.log("email", this.email);
+            document.write("<p>");
+            document.write("name : " + this.name);
+            document.write("</p><p>");
+            document.write("email : " + this.email);
+            document.write("</p><p>");
+            document.write("score : " + this.score);
+        }
+
+        printScore() {
+            document.write("<p>score : " + this.score + "</p>");
+        }
+
+        incScore() {
+            this.score++;
+            this.printScore();
+
+            return this; // method chain 처리를 위해서 필요...
+        }
+
+        decScore() {
+            this.score--;
+            this.printScore();
+
+            return this;
+        }
+    }
+
+    class Admin extends User {
+        deleteUser(user) {
+            users = users.filter(u => {
+                return u.email != user.email;
+            })
+        }
+    }
+
+    let userOne = new User('soondo', 'soondo@naver.com');   
+    let userTwo = new User('tommy', 'tommy@naver.com');
+    let admin = new Admin('john', 'john@naver.com');
+
+    let users = [userOne, userTwo, admin];
+
+    console.log(users);
+    admin.deleteUser(users[1])
+    //admin.deleteUser(users[2])
+    console.log(users);
+    
+    admin.print();
+
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Literal</title>
+</head>
+<body>
+    <h1>Object Literal</h1>
+</body>
+</html>
+<script>
+    //---------------------------------------
+    // 1. 한개의 object를 선언과 동시에 사용하기
+    // 단발성 객체
+    let userOne = {
+        email: 'benny@naver.com',
+        name: 'benny',
+        print: function() {
+            document.write('<h2>');
+            document.write('email : ', this.email);
+            document.write('</h2>');
+            document.write('<h2>');
+            document.write('name : ', this.name);
+            document.write('</h2>');            
+        },
+    };
+    console.log(userOne);
+
+    userOne.print();
+
+    userOne.name = 'soondo';
+    userOne.email = 'soondo@naver.com';
+    userOne.print();
+
+    userOne['name'] = '순도';
+    userOne.print();
+
+    let prop = 'email';
+    console.log(userOne[prop]);
+
+    const NAME = 'name';
+    console.log(userOne[NAME]);
+
+    userOne.age = 40 // 동적으로 속성 추가
+    console.log(userOne['age']);
+
+    userOne.printAge = function() { // 동적으로 method 추가
+        console.log("printAge() -> this.age : ", this.age);
+    }
+
+    userOne.printAge();
+
+    //---------------------------------------
+    // 단발성 객체
+    let userTwo = {
+        email: 'tommy@naver.com',
+        name: 'tommy',
+        print: function() {
+            document.write('<h2>');
+            document.write('email : ', this.email);
+            document.write('</h2>');
+            document.write('<h2>');
+            document.write('name : ', this.name);
+            document.write('</h2>');            
+        },
+    };
+    console.log(userTwo);
+    
+</script>
